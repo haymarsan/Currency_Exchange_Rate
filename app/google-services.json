@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1016577473227",
+    "firebase_url": "https://currency-exchange-63033.firebaseio.com",
+    "project_id": "currency-exchange-63033",
+    "storage_bucket": "currency-exchange-63033.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016577473227:android:5e55accac4658ffc",
+        "android_client_info": {
+          "package_name": "com.hms.currencyexchange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016577473227-s156ce255hcvhkot7ka3b58pegj4qfqr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hms.currencyexchange",
+            "certificate_hash": "1f611c323a2c976bd483554ad5783022f63679d9"
+          }
+        },
+        {
+          "client_id": "1016577473227-iebmkjs6joml2lpg2a7ud3luu35s7f9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLE2XwJJZf7P9-qbH1sxga-zj3YKyNgsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016577473227-iebmkjs6joml2lpg2a7ud3luu35s7f9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
