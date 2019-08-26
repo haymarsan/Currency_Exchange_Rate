@@ -1,16 +1,27 @@
 package com.hms.currencyexchange.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.hms.currencyexchange.R
 
 class SplashActivity : AppCompatActivity() {
 
+//    private val TAG = "PermissionRequest"
+//    private val PERMISSION_REQUESTS = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
 
 
 //        Handler().postDelayed(
@@ -26,8 +37,11 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(MainActivity.newInstance(this))
                 finish()
             },
-            3000
+            2000
         )
+
+
+
     }
 
 

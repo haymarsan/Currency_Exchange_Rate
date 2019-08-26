@@ -1,11 +1,15 @@
 
+import android.content.Context
 import android.media.Image
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -32,6 +36,9 @@ class FavouriteCurrencyFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_favourite_currency, container, false)
 
+        //check internet connection
+
+
 
         mViewModel = ViewModelProviders.of(this).get(ExchangeRateViewModelImpl::class.java)
 
@@ -42,24 +49,32 @@ class FavouriteCurrencyFragment : Fragment() {
 
 
         view.progressFavourite.visibility = View.VISIBLE
-        mViewModel.getExchangeRate().observe(this, Observer {
-            val data = it
 
-            view.progressFavourite.visibility = View.GONE
-            Log.d("Data Set", data.description)
+        isConnectingToInternet(context!!)
 
-            var currencyList = ArrayList<RateVO>()
+        if (isConnectingToInternet(context!!)) {
+                mViewModel.getExchangeRate().observe(this, Observer {
+                    val data = it
 
-            for ((key, value) in it.rates) {
+                    view.progressFavourite.visibility = View.GONE
+                    Log.d("Data Set", data.description)
 
-                if (isFavouriteCurrency(key))
-                currencyList.add(RateVO(key, value))
+                    var currencyList = ArrayList<RateVO>()
 
-            }
+                    for ((key, value) in it.rates) {
 
-            mAdapter.setNewData(currencyList as List<RateVO>)
+                        if (isFavouriteCurrency(key))
+                            currencyList.add(RateVO(key, value))
 
-        })
+                    }
+
+                    mAdapter.setNewData(currencyList as List<RateVO>)
+
+                })
+        } else {
+            Toast.makeText(context,
+                "No Internet Connection, Please access to internet", Toast.LENGTH_LONG).show()
+        }
 
         return view
     }
@@ -89,5 +104,21 @@ class FavouriteCurrencyFragment : Fragment() {
 
 
     }
+
+
+    fun isConnectingToInternet(context: Context): Boolean {
+        val connectivity = context.getSystemService(
+            Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (connectivity != null) {
+            val info = connectivity.allNetworkInfo
+            if (info != null)
+                for (i in info)
+                    if (i.state == NetworkInfo.State.CONNECTED) {
+                        return true
+                    }
+        }
+        return false
+    }
+
 
 }

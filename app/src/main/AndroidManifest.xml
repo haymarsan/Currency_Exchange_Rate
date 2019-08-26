@@ -3,6 +3,7 @@
           package="com.hms.currencyexchange">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
             android:name=".CurrencyApp"
@@ -30,16 +31,17 @@
         <activity
                 android:name=".activities.SplashActivity"
                 android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-                android:name=".activities.MainActivity"
-                android:label="@string/app_name"
-                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".activities.MainActivity"
+                android:label="@string/app_name"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+
         </activity>
     </application>
 

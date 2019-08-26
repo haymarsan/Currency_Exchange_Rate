@@ -2,10 +2,13 @@ package com.hms.currencyexchange.activities
 
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,6 +47,17 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_previous_day_rate)
+
+        //check internet connection
+//        isConnectingToInternet(this@PreviousDayRateActivity)
+//
+//        if (isConnectingToInternet(this@PreviousDayRateActivity)) {
+//            Toast.makeText(applicationContext,
+//                "net is there", Toast.LENGTH_LONG).show()
+//        } else {
+//            Toast.makeText(applicationContext,
+//                "no net", Toast.LENGTH_LONG).show()
+//        }
 
 
         mInterstitialAd = InterstitialAd(this)
@@ -123,4 +137,17 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
             .show()
     }
 
+//    fun isConnectingToInternet(context: Context): Boolean {
+//        val connectivity = context.getSystemService(
+//            Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+//        if (connectivity != null) {
+//            val info = connectivity.allNetworkInfo
+//            if (info != null)
+//                for (i in info)
+//                    if (i.state == NetworkInfo.State.CONNECTED) {
+//                        return true
+//                    }
+//        }
+//        return false
+//    }
 }
