@@ -50,7 +50,7 @@ class FavouriteCurrencyFragment : Fragment() {
 
         view.progressFavourite.visibility = View.VISIBLE
 
-        isConnectingToInternet(context!!)
+        //isConnectingToInternet(context!!)
 
         if (isConnectingToInternet(context!!)) {
                 mViewModel.getExchangeRate().observe(this, Observer {
