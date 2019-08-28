@@ -57,5 +57,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-ads:18.1.1'
 
 
+    //Room
+    implementation 'androidx.room:room-runtime:2.1.0'
+    kapt 'androidx.room:room-compiler:2.1.0'
+
+
 
 }

@@ -72,6 +72,24 @@ class AllCurrencyFragment : Fragment() {
                 context,
                 "No Internet Connection, Please access to internet", Toast.LENGTH_LONG
             ).show()
+
+            if (isConnectingToInternet(context!!)) {
+                // if (mViewModel.getExchangeRate() != null) {
+                mViewModel.getExchangeRate().observe(this, Observer {
+                    val data = it
+
+                    view.progress.visibility = View.GONE
+                    Log.d("Data Set", data.description)
+
+                    var currencyList = ArrayList<RateVO>()
+
+                    for ((key, value) in it.rates) {
+                        currencyList.add(RateVO(key, value))
+                    }
+                    mAdapter.setNewData(currencyList as List<RateVO>)
+
+                })
+            }
         }
 
         return view

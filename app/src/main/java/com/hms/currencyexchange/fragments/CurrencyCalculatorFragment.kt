@@ -69,7 +69,6 @@ class CurrencyCalculatorFragment : Fragment() {
         mSpinner.isEnabled = false
         view.progressCalculate.visibility = View.VISIBLE
 
-
         return view
     }
 

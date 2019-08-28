@@ -52,31 +52,36 @@ class FavouriteCurrencyFragment : Fragment() {
 
         //isConnectingToInternet(context!!)
 
+
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         if (isConnectingToInternet(context!!)) {
-                mViewModel.getExchangeRate().observe(this, Observer {
-                    val data = it
+            mViewModel.getExchangeRate().observe(this, Observer {
+                val data = it
 
-                    view.progressFavourite.visibility = View.GONE
-                    Log.d("Data Set", data.description)
+                view.progressFavourite.visibility = View.GONE
+                Log.d("Data Set", data.description)
 
-                    var currencyList = ArrayList<RateVO>()
+                var currencyList = ArrayList<RateVO>()
 
-                    for ((key, value) in it.rates) {
+                for ((key, value) in it.rates) {
 
-                        if (isFavouriteCurrency(key))
-                            currencyList.add(RateVO(key, value))
+                    if (isFavouriteCurrency(key))
+                        currencyList.add(RateVO(key, value))
 
-                    }
+                }
 
-                    mAdapter.setNewData(currencyList as List<RateVO>)
+                mAdapter.setNewData(currencyList as List<RateVO>)
 
-                })
+            })
         } else {
             Toast.makeText(context,
                 "No Internet Connection, Please access to internet", Toast.LENGTH_LONG).show()
         }
 
-        return view
     }
 
 
