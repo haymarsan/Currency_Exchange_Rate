@@ -1,4 +1,4 @@
-package com.hms.currencyexchange.network
+package com.hms.currencyexchange.data.network
 
 
 import com.hms.currencyexchange.utils.utils

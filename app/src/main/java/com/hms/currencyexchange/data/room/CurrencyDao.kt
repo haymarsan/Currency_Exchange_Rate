@@ -9,14 +9,16 @@ interface CurrencyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCurrency(currencyEntity: CurrencyEntity)
 
-    @Query("SELECT * From currency_table")
-    fun getCurrency():LiveData<List<CurrencyEntity>>
-
+    @Update
+    fun updateCurrency(currencyEntity: CurrencyEntity)
 
     @Delete
     fun deleteCurrency(currencyEntity: CurrencyEntity)
 
-    @Update
-    fun updateCurrency(currencyEntity: CurrencyEntity)
+    @Query("DELETE From currency_table")
+    fun deleteAllCurrency()
+
+    @Query("SELECT * From currency_table")
+    fun getCurrency():LiveData<List<CurrencyEntity>>
 
 }

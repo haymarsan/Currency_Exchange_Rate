@@ -58,7 +58,7 @@ class FavouriteCurrencyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (isConnectingToInternet(context!!)) {
+
             mViewModel.getExchangeRate().observe(this, Observer {
                 val data = it
 
@@ -77,10 +77,7 @@ class FavouriteCurrencyFragment : Fragment() {
                 mAdapter.setNewData(currencyList as List<RateVO>)
 
             })
-        } else {
-            Toast.makeText(context,
-                "No Internet Connection, Please access to internet", Toast.LENGTH_LONG).show()
-        }
+
 
     }
 
@@ -111,19 +108,6 @@ class FavouriteCurrencyFragment : Fragment() {
     }
 
 
-    fun isConnectingToInternet(context: Context): Boolean {
-        val connectivity = context.getSystemService(
-            Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        if (connectivity != null) {
-            val info = connectivity.allNetworkInfo
-            if (info != null)
-                for (i in info)
-                    if (i.state == NetworkInfo.State.CONNECTED) {
-                        return true
-                    }
-        }
-        return false
-    }
 
 
 }

@@ -49,55 +49,37 @@ class AllCurrencyFragment : Fragment() {
         view.progress.visibility = View.VISIBLE
 
         if (isConnectingToInternet(context!!)) {
-           // if (mViewModel.getExchangeRate() != null) {
-                mViewModel.getExchangeRate().observe(this, Observer {
-                    val data = it
+            // if (mViewModel.getExchangeRate() != null) {
+            mViewModel.getExchangeRate().observe(this, Observer {
+                val data = it
 
-                    view.progress.visibility = View.GONE
-                    Log.d("Data Set", data.description)
+                view.progress.visibility = View.GONE
+                Log.d("Data Set", data.description)
 
-                    var currencyList = ArrayList<RateVO>()
+                var currencyList = ArrayList<RateVO>()
 
-                    for ((key, value) in it.rates) {
-                        currencyList.add(RateVO(key, value))
+                for ((key, value) in it.rates) {
+                    currencyList.add(RateVO(key, value))
 
-                    }
+                }
 
-                    mAdapter.setNewData(currencyList as List<RateVO>)
+                mAdapter.setNewData(currencyList as List<RateVO>)
 
-                })
+            })
 
         } else {
             Toast.makeText(
                 context,
                 "No Internet Connection, Please access to internet", Toast.LENGTH_LONG
             ).show()
-
-            if (isConnectingToInternet(context!!)) {
-                // if (mViewModel.getExchangeRate() != null) {
-                mViewModel.getExchangeRate().observe(this, Observer {
-                    val data = it
-
-                    view.progress.visibility = View.GONE
-                    Log.d("Data Set", data.description)
-
-                    var currencyList = ArrayList<RateVO>()
-
-                    for ((key, value) in it.rates) {
-                        currencyList.add(RateVO(key, value))
-                    }
-                    mAdapter.setNewData(currencyList as List<RateVO>)
-
-                })
-            }
         }
-
         return view
     }
 
     fun isConnectingToInternet(context: Context): Boolean {
         val connectivity = context.getSystemService(
-            Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            Context.CONNECTIVITY_SERVICE
+        ) as ConnectivityManager
         if (connectivity != null) {
             val info = connectivity.allNetworkInfo
             if (info != null)
