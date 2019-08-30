@@ -16,6 +16,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.hms.currencyexchange.R
 import com.hms.currencyexchange.adapters.ExchangeRateAdapter
+import com.hms.currencyexchange.data.room.CurrencyEntity
 import com.hms.currencyexchange.data.vos.RateVO
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModel
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModelImpl
@@ -120,7 +121,7 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
 
             }
 
-            mAdapter.setNewData(currencyList as List<RateVO>)
+            mAdapter.setNewData(currencyList as List<CurrencyEntity>)
 
 
         })

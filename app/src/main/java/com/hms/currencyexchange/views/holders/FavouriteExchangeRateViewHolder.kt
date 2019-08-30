@@ -2,17 +2,18 @@ package com.hms.currencyexchange.view.holders
 
 import android.view.View
 import com.hms.currencyexchange.R
+import com.hms.currencyexchange.data.room.CurrencyEntity
 import com.hms.currencyexchange.data.vos.RateVO
 import com.hms.currencyexchange.views.holders.BaseViewHolder
 import kotlinx.android.synthetic.main.view_item_exchange_rate.view.tvCurrencyCode
 import kotlinx.android.synthetic.main.view_item_exchange_rate.view.tvSellRate
 import kotlinx.android.synthetic.main.view_item_favourite_rate.view.*
 
-class FavouriteExchangeRateViewHolder(itemView: View): BaseViewHolder<RateVO>(itemView) {
+class FavouriteExchangeRateViewHolder(itemView: View): BaseViewHolder<CurrencyEntity>(itemView) {
 
-    override fun setData(data: RateVO) {
+    override fun setData(data: CurrencyEntity) {
 
-        when(data.currencyCode){
+        when(data.currency_code){
             "USD" ->{
 
                 itemView.ivCurrency.setImageResource(R.drawable.usa)
@@ -32,7 +33,7 @@ class FavouriteExchangeRateViewHolder(itemView: View): BaseViewHolder<RateVO>(it
 
         }
 
-        itemView.tvCurrencyCode.text = data.currencyCode
+        itemView.tvCurrencyCode.text = data.currency_code
         itemView.tvSellRate.text = data.mmk
 
     }

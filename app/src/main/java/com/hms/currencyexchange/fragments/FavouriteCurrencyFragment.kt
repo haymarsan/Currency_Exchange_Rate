@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hms.currencyexchange.R
 import com.hms.currencyexchange.adapters.FavouriteExchangeRateAdapter
+import com.hms.currencyexchange.data.room.CurrencyEntity
 import com.hms.currencyexchange.data.vos.RateVO
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModel
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModelImpl
@@ -36,9 +37,6 @@ class FavouriteCurrencyFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_favourite_currency, container, false)
 
-        //check internet connection
-
-
 
         mViewModel = ViewModelProviders.of(this).get(ExchangeRateViewModelImpl::class.java)
 
@@ -48,36 +46,24 @@ class FavouriteCurrencyFragment : Fragment() {
         view.recyclerFavouriteExchange.adapter = mAdapter
 
 
-        view.progressFavourite.visibility = View.VISIBLE
-
-        //isConnectingToInternet(context!!)
-
-
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-            mViewModel.getExchangeRate().observe(this, Observer {
-                val data = it
+        var favouriteList = ArrayList<CurrencyEntity>()
 
-                view.progressFavourite.visibility = View.GONE
-                Log.d("Data Set", data.description)
+        mViewModel.getAllCurrency().observe(this, Observer {
 
-                var currencyList = ArrayList<RateVO>()
-
-                for ((key, value) in it.rates) {
-
-                    if (isFavouriteCurrency(key))
-                        currencyList.add(RateVO(key, value))
-
+            for (currency in it){
+                if (isFavouriteCurrency(currency.currency_code)){
+                    favouriteList.add(currency)
                 }
-
-                mAdapter.setNewData(currencyList as List<RateVO>)
-
-            })
-
+            }
+            mAdapter.setNewData(favouriteList as List<CurrencyEntity>)
+        })
 
     }
 
@@ -104,10 +90,7 @@ class FavouriteCurrencyFragment : Fragment() {
 
         return isCurrency
 
-
     }
-
-
 
 
 }

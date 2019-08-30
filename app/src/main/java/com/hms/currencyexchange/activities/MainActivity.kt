@@ -34,8 +34,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
 
-
-
     companion object {
 
         fun newInstance(context: Context): Intent {

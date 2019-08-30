@@ -1,6 +1,7 @@
 package com.hms.currencyexchange.viewmodel
 
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +9,7 @@ import com.hms.currencyexchange.data.room.CurrencyEntity
 import com.hms.currencyexchange.data.vos.ExchangeRateVO
 import com.hms.currencyexchange.repository.RepositoryImpl
 
-class ExchangeRateViewModelImpl(application: Application): ViewModel(), ExchangeRateViewModel {
+class ExchangeRateViewModelImpl(application: Application): AndroidViewModel(application), ExchangeRateViewModel {
 
     private val repository = RepositoryImpl(application)
 
@@ -16,7 +17,9 @@ class ExchangeRateViewModelImpl(application: Application): ViewModel(), Exchange
 
     private lateinit var historyRateList: MutableLiveData<ExchangeRateVO>
 
-    val allCurrency: LiveData<List<CurrencyEntity>> = repository.getAllCurrecny()
+    override fun getAllCurrency(): LiveData<List<CurrencyEntity>> {
+        return repository.getAllCurrecny()
+    }
 
     override fun insertCurrency(currencyEntity: CurrencyEntity) {
         repository.insertCurrency(currencyEntity)

@@ -8,6 +8,7 @@ import java.lang.Appendable
 
 interface ExchangeRateViewModel {
 
+    fun getAllCurrency(): LiveData<List<CurrencyEntity>>
 
     fun getExchangeRate(): LiveData<ExchangeRateVO>
 

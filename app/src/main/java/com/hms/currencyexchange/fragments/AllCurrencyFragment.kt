@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hms.currencyexchange.R
 import com.hms.currencyexchange.adapters.ExchangeRateAdapter
+import com.hms.currencyexchange.data.room.CurrencyEntity
 import com.hms.currencyexchange.data.vos.RateVO
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModel
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModelImpl
@@ -45,52 +46,32 @@ class AllCurrencyFragment : Fragment() {
         view.recyclerExchange.layoutManager = LinearLayoutManager(context)
         view.recyclerExchange.adapter = mAdapter
 
-
-        view.progress.visibility = View.VISIBLE
-
-        if (isConnectingToInternet(context!!)) {
-            // if (mViewModel.getExchangeRate() != null) {
-            mViewModel.getExchangeRate().observe(this, Observer {
-                val data = it
-
-                view.progress.visibility = View.GONE
-                Log.d("Data Set", data.description)
-
-                var currencyList = ArrayList<RateVO>()
-
-                for ((key, value) in it.rates) {
-                    currencyList.add(RateVO(key, value))
-
-                }
-
-                mAdapter.setNewData(currencyList as List<RateVO>)
-
-            })
-
-        } else {
-            Toast.makeText(
-                context,
-                "No Internet Connection, Please access to internet", Toast.LENGTH_LONG
-            ).show()
-        }
         return view
     }
 
-    fun isConnectingToInternet(context: Context): Boolean {
-        val connectivity = context.getSystemService(
-            Context.CONNECTIVITY_SERVICE
-        ) as ConnectivityManager
-        if (connectivity != null) {
-            val info = connectivity.allNetworkInfo
-            if (info != null)
-                for (i in info)
-                    if (i.state == NetworkInfo.State.CONNECTED) {
-                        return true
-                    }
-        }
-        return false
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mViewModel.getAllCurrency().observe(this, Observer {
+            mAdapter.setNewData(it)
+        })
+
     }
-}
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //          mViewModel = ViewModelProviders.of(this).get(ExchangeRateViewModelImpl::class.java)
