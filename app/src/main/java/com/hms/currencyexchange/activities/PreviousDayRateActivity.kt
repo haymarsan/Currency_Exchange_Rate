@@ -16,6 +16,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.hms.currencyexchange.R
 import com.hms.currencyexchange.adapters.ExchangeRateAdapter
+import com.hms.currencyexchange.adapters.PreviousRateAdapter
 import com.hms.currencyexchange.data.room.CurrencyEntity
 import com.hms.currencyexchange.data.vos.RateVO
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModel
@@ -31,7 +32,7 @@ import java.util.*
 class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     lateinit var mViewModel: ExchangeRateViewModel
-    lateinit var mAdapter: ExchangeRateAdapter
+    lateinit var mAdapter: PreviousRateAdapter
 
     private var date: String = ""
 
@@ -69,7 +70,7 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
 
         mViewModel = ViewModelProviders.of(this).get(ExchangeRateViewModelImpl::class.java)
 
-        mAdapter = ExchangeRateAdapter(this)
+        mAdapter = PreviousRateAdapter(this)
 
         recyclerExchange.layoutManager = LinearLayoutManager(this)
         recyclerExchange.adapter = mAdapter
@@ -121,7 +122,7 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
 
             }
 
-            mAdapter.setNewData(currencyList as List<CurrencyEntity>)
+           mAdapter.setNewData(currencyList as List<RateVO>)
 
 
         })

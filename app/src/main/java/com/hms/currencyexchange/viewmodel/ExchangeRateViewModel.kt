@@ -4,7 +4,8 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import com.hms.currencyexchange.data.room.CurrencyEntity
 import com.hms.currencyexchange.data.vos.ExchangeRateVO
-import java.lang.Appendable
+import com.hms.currencyexchange.data.vos.RateVO
+
 
 interface ExchangeRateViewModel {
 

@@ -14,4 +14,16 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="edit_text_bg">#E4E7EE</color>
+    <color name="lavender">	#E6E6FA</color>
+    <color name="thistle">#D8BFD8</color>
+    <color name="plum">#DDA0DD</color>
+    <color name="violet">#EE82EE</color>
+    <color name="darkorchid">#9932CC</color>
+    <color name="darkviolet">#9400D3</color>
+    <color name="lightviolet">#9f40ff</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="lightyellow2">#FFFF99</color>
+    <color name="lightyellow3">#FFFF66</color>
+    <color name="lightyellow4">#FFFF33</color>
+    <color name="yellowgreen">#9ACE32</color>
 </resources>

@@ -65,7 +65,7 @@ class SplashActivity : AppCompatActivity() {
                         2000
                     )
                 })
-                
+
             } else {
                 Handler().postDelayed(
                     {

@@ -8,10 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -77,10 +74,81 @@ class CurrencyCalculatorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mViewModel.getExchangeRate().observe(this, Observer {
+            val data = it
+            Log.d("Data Set", data.description)
+
+            view.progressCalculate.visibility = View.GONE
+            mSpinner.isEnabled = true
+            for ((key, value) in it.rates) {
+                val v = value.replace(",", "")
+                if (isFavouriteCurrency(key, v.toDouble()))
+                    currencyList.add(RateVO(key, v))
+
+            }
+            Log.d("usd rate", usdRate.toString())
+
+            mAmount.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    try {
+                        val rate = s.toString().toDouble()
+
+                        calculateCurrency(rate, usdRate)
+                        currencyTypeGenerator()
+                    } catch (e: NumberFormatException) {
+                        mMMK.setText("0.0")
+
+                    }
+
+
+                }
+
+                override fun afterTextChanged(s: Editable?) {
+
+                }
+
+            })
+
+
+/*            etAmount.isEnabled = true
+            etMMK.isEnabled = true
+
+
+            val spinnerArrayAdapter = ArrayAdapter<String>(
+                context!!, android.R.layout.simple_spinner_item,
+                currencyList
+            )
+
+            spinnerArrayAdapter.setDropDownViewResource(
+                android.R.layout
+                    .simple_spinner_dropdown_item
+            )
+            view.spnCurrency.adapter = spinnerArrayAdapter*/
+
 
         })
 
+        mSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                currencyType = mSpinner.selectedItem.toString()
+                Log.d("current", currencyType)
+                val amount = mAmount
+                val rate = usdRate
+                currencyTypeGenerator()
+
+
+            }
+
+        }
     }
+
 
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
@@ -217,8 +285,6 @@ class CurrencyCalculatorFragment : Fragment() {
 
 
     }
-
-
 
 
 }

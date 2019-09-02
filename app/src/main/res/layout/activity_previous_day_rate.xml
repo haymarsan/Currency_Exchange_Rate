@@ -9,8 +9,8 @@
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:id="@+id/btnPreviousRate"
-            android:background="@color/dark_grey"
-            android:textColor="@color/gold"
+            android:background="@color/lightyellow2"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="@dimen/text_regular_2x"
             app:layout_constraintTop_toTopOf="parent"
