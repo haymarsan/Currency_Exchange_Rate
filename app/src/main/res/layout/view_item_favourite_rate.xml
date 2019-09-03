@@ -4,7 +4,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="wrap_content"
-                                                   android:background="@android:color/white">
+                                                   android:background="@android:color/black">
 
 
     <androidx.cardview.widget.CardView
@@ -16,7 +16,9 @@
             android:foreground="@drawable/bg_ripple_primary"
             app:cardElevation="@dimen/margin_small"
             app:cardCornerRadius="@dimen/margin_small"
-            android:padding="@dimen/margin_card_medium"
+            android:paddingTop="@dimen/margin_card_medium"
+            android:paddingRight="@dimen/margin_card_medium"
+            android:paddingLeft="@dimen/margin_card_medium"
             android:layout_margin="2dp">
 
         <LinearLayout

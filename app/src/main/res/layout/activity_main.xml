@@ -24,7 +24,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:background="@color/yellowgreen"
-                    app:titleTextColor="@color/gold"
+                    app:titleTextColor="@color/black"
                     app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
             <com.google.android.material.tabs.TabLayout
@@ -41,7 +41,8 @@
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@android:color/white">
 
         <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"

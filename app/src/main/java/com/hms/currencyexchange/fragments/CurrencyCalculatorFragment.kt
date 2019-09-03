@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hms.currencyexchange.R
+import com.hms.currencyexchange.data.room.CurrencyEntity
 import com.hms.currencyexchange.data.vos.RateVO
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModel
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModelImpl
@@ -73,16 +74,18 @@ class CurrencyCalculatorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mViewModel.getExchangeRate().observe(this, Observer {
-            val data = it
-            Log.d("Data Set", data.description)
+        var allList = ArrayList<CurrencyEntity>()
+        mViewModel.getAllCurrency().observe(this, Observer {
 
+
+
+           // allList = data as ArrayList<CurrencyEntity>
             view.progressCalculate.visibility = View.GONE
             mSpinner.isEnabled = true
-            for ((key, value) in it.rates) {
-                val v = value.replace(",", "")
-                if (isFavouriteCurrency(key, v.toDouble()))
-                    currencyList.add(RateVO(key, v))
+            for (currency in it) {
+                val v = currency.mmk.replace(",", "")
+                if (isFavouriteCurrency(currency.currency_code, v.toDouble()))
+                    currencyList.add(RateVO(currency.currency_code, v))
 
             }
             Log.d("usd rate", usdRate.toString())

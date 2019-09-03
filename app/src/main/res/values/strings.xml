@@ -48,6 +48,13 @@
         <item>USD</item>
     </string-array>
 
+    //Test ID
     <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="banner1_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitialID">ca-app-pub-3940256099942544/1033173712</string>
+
+    //Production ID
+    <!--<string name="app_id">ca-app-pub-1392619560208992~5524807195</string>-->
+    <!--<string name="banner1_id">ca-app-pub-1392619560208992/6917779911</string>-->
+    <!--<string name="interstitialID">ca-app-pub-1392619560208992/6533818296</string>-->
 </resources>

@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -63,7 +64,7 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
 
 
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        mInterstitialAd.adUnitId = getString(R.string.interstitialID)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
 
 
@@ -108,6 +109,7 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
         btnPreviousRate.setText(date)
 
         progress.visibility = View.VISIBLE
+        if (isConnectingToInternet(this)) {
         mViewModel.getPreviousExchangeRate(date).observe(this, Observer {
 
             val data = it
@@ -125,7 +127,19 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
            mAdapter.setNewData(currencyList as List<RateVO>)
 
 
-        })
+        })}else{
+            Toast.makeText(
+                this,
+                "No Internet Connection, Please access to internet", Toast.LENGTH_LONG
+            ).show()
+            Handler().postDelayed(
+                {
+                    startActivity(MainActivity.newInstance(this))
+                    finish()
+                },
+                1000
+            )
+        }
 
     }
 
@@ -139,17 +153,17 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
             .show()
     }
 
-//    fun isConnectingToInternet(context: Context): Boolean {
-//        val connectivity = context.getSystemService(
-//            Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-//        if (connectivity != null) {
-//            val info = connectivity.allNetworkInfo
-//            if (info != null)
-//                for (i in info)
-//                    if (i.state == NetworkInfo.State.CONNECTED) {
-//                        return true
-//                    }
-//        }
-//        return false
-//    }
+    fun isConnectingToInternet(context: Context): Boolean {
+        val connectivity = context.getSystemService(
+            Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (connectivity != null) {
+            val info = connectivity.allNetworkInfo
+            if (info != null)
+                for (i in info)
+                    if (i.state == NetworkInfo.State.CONNECTED) {
+                        return true
+                    }
+        }
+        return false
+    }
 }

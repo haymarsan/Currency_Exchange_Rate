@@ -50,6 +50,8 @@ class SplashActivity : AppCompatActivity() {
         if (isConnectingToInternet(this)) {
             if (loadDBLatestDate() < SimpleDateFormat("yyyyMMdd").format(Date()).toLong()) {
 
+                mViewModel.deleteAllCurrency()
+
                 mViewModel.getExchangeRate().observe(this, Observer {
                     val data = it
 
@@ -80,6 +82,10 @@ class SplashActivity : AppCompatActivity() {
         } else {
 
             if(isDatabaseExist()){
+                Toast.makeText(
+                    this,
+                    "No Internet Connection, Please access to internet", Toast.LENGTH_LONG
+                ).show()
                 Handler().postDelayed(
                     {
                         startActivity(MainActivity.newInstance(this))

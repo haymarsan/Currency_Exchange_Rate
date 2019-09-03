@@ -51,9 +51,11 @@ class AllCurrencyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        var curList = ArrayList<CurrencyEntity>()
         mViewModel.getAllCurrency().observe(this, Observer {
-            mAdapter.setNewData(it)
+            curList = it as ArrayList<CurrencyEntity>
+            curList.add(CurrencyEntity(0, "",""))
+            mAdapter.setNewData(curList)
         })
 
     }
