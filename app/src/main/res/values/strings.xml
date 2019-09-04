@@ -28,10 +28,13 @@
     <string name="menu_update">Check Update</string>
     <string name="menu_about">About</string>
     <string name="title_activity_home_drawer">HomeDrawerActivity</string>
-    <string name="app_package">com.mmdeveloper.khunsma.eng_myandictionary</string>
+    <string name="app_package">com.hms.currencyexchange</string>
     <string name="check_update">Check Update</string>
-    <string name="app_url">https://play.google.com/store/apps/details?id=com.mmdeveloper.khunsma.eng_myandictionary
+    <string name="app_url">https://play.google.com/store/apps/details?id=com.hms.currencyexchange
     </string>
+    <string name="invite_friend_text">Hello my friend, this is Currency Exchange App,
+        useful for searching and calculation from foreign currencies to Myanmar Kyats rates, please
+    install and use it, thanks.\n https://play.google.com/store/apps/details?id=com.hms.currencyexchange</string>
 
     <string-array name="currency_arrays1">
         <item>USD</item>
@@ -49,12 +52,13 @@
     </string-array>
 
     //Test ID
-    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="banner1_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="interstitialID">ca-app-pub-3940256099942544/1033173712</string>
+    <!--<string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+    <!--<string name="banner1_id">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--<string name="interstitialID">ca-app-pub-3940256099942544/1033173712</string>-->
 
     //Production ID
-    <!--<string name="app_id">ca-app-pub-1392619560208992~5524807195</string>-->
-    <!--<string name="banner1_id">ca-app-pub-1392619560208992/6917779911</string>-->
-    <!--<string name="interstitialID">ca-app-pub-1392619560208992/6533818296</string>-->
+    <string name="app_id">ca-app-pub-1392619560208992~5524807195</string>
+    <string name="banner1_id">ca-app-pub-1392619560208992/6917779911</string>
+    <string name="interstitialID">ca-app-pub-1392619560208992/6533818296</string>
+
 </resources>

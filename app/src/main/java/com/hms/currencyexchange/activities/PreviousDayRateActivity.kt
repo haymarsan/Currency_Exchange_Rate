@@ -68,7 +68,6 @@ class PreviousDayRateActivity : AppCompatActivity(), DatePickerDialog.OnDateSetL
         mInterstitialAd.loadAd(AdRequest.Builder().build())
 
 
-
         mViewModel = ViewModelProviders.of(this).get(ExchangeRateViewModelImpl::class.java)
 
         mAdapter = PreviousRateAdapter(this)
