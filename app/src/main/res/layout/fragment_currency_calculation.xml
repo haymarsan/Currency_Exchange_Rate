@@ -1,112 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:orientation="vertical"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:padding="@dimen/margin_small"
-                                                   android:background="@color/black">
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                       xmlns:app="http://schemas.android.com/apk/res-auto"
+                                       xmlns:tools="http://schemas.android.com/tools"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="match_parent">
 
-    <ProgressBar
-            android:id="@+id/progressCalculate"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="gone"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_small"
+            android:background="@color/black">
 
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:id="@+id/rlFrame"
-                    android:padding="@dimen/margin_card_medium_2"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@color/lightyellow2">
+        <ProgressBar
+                android:id="@+id/progressCalculate"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="gone"/>
 
-        <TextView android:layout_width="match_parent" android:layout_height="50dp"
-                  android:id="@+id/tvCalculationTitle"
-                  android:layout_marginTop="@dimen/margin_small"
-                  android:text="Currency Rate Calculation"
-                  android:textSize="@dimen/text_heading_1x"
-                  android:textColor="@color/black"
-                  android:textStyle="bold"/>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:id="@+id/rlFrame"
+                        android:padding="@dimen/margin_card_medium_2"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:background="@color/lightyellow2">
+
+            <TextView android:layout_width="match_parent" android:layout_height="50dp"
+                      android:id="@+id/tvCalculationTitle"
+                      android:layout_marginTop="@dimen/margin_small"
+                      android:text="Currency Rate Calculation"
+                      android:textSize="@dimen/text_heading_1x"
+                      android:textColor="@color/black"
+                      android:textStyle="bold"/>
 
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:id="@+id/tvAmount"
-                  android:text="Amount"
-                  android:layout_marginTop="@dimen/margin_medium_2"
-                  android:layout_below="@+id/tvCalculationTitle"
-                  android:textSize="@dimen/text_regular_3x"
-                  android:textColor="@color/black"
-                  android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:id="@+id/tvAmount"
+                      android:text="Amount"
+                      android:layout_marginTop="@dimen/margin_medium_2"
+                      android:layout_below="@+id/tvCalculationTitle"
+                      android:textSize="@dimen/text_regular_3x"
+                      android:textColor="@color/black"
+                      android:textStyle="bold"/>
 
-        <EditText android:layout_width="match_parent" android:layout_height="50dp"
-                  android:id="@+id/etAmount"
-                  android:layout_marginTop="@dimen/margin_small"
-                  android:layout_below="@+id/tvAmount"
-                  android:textColor="@color/black"
-                  android:hint="0.0"
-                  android:inputType="numberDecimal"
-                  android:textAlignment="center"
-                  android:background="@drawable/backgroud_calc"/>
+            <EditText android:layout_width="match_parent" android:layout_height="50dp"
+                      android:id="@+id/etAmount"
+                      android:layout_marginTop="@dimen/margin_small"
+                      android:layout_below="@+id/tvAmount"
+                      android:textColor="@color/black"
+                      android:hint="0.0"
+                      android:inputType="numberDecimal"
+                      android:textAlignment="center"
+                      android:background="@drawable/backgroud_calc"/>
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:id="@+id/tvCurrencyType"
-                  android:text="Currency Type"
-                  android:layout_marginTop="128dp"
-                  android:layout_below="@+id/tvCalculationTitle"
-                  android:textSize="@dimen/text_regular_3x"
-                  android:textColor="@color/black"
-                  android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:id="@+id/tvCurrencyType"
+                      android:text="Currency Type"
+                      android:layout_marginTop="128dp"
+                      android:layout_below="@+id/tvCalculationTitle"
+                      android:textSize="@dimen/text_regular_3x"
+                      android:textColor="@color/black"
+                      android:textStyle="bold"/>
 
-        <LinearLayout
-                android:id="@+id/llSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="@dimen/margin_medium_2"
-                android:layout_below="@id/tvCurrencyType"
-                android:background="@drawable/backgroud_calc"
-                android:paddingTop="@dimen/content_padding"
-                android:paddingBottom="@dimen/content_padding2"
-                android:paddingStart="@dimen/content_padding2"
-                android:paddingEnd="@dimen/content_padding2">
-
-            <Spinner
-                    android:id="@+id/spnCurrency"
+            <LinearLayout
+                    android:id="@+id/llSpinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_below="@id/tvCurrencyType"
                     android:background="@drawable/backgroud_calc"
-                    android:clickable="false"
-                    android:textColor="@color/black"
-                    android:entries="@array/currency_arrays1"
-                    android:textSize="@dimen/text_regular_3x"
-            />
-        </LinearLayout>
+                    android:paddingTop="@dimen/content_padding"
+                    android:paddingBottom="@dimen/content_padding2"
+                    android:paddingStart="@dimen/content_padding2"
+                    android:paddingEnd="@dimen/content_padding2">
+
+                <Spinner
+                        android:id="@+id/spnCurrency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/backgroud_calc"
+                        android:clickable="false"
+                        android:textColor="@color/black"
+                        android:entries="@array/currency_arrays1"
+                        android:textSize="@dimen/text_regular_3x"
+                />
+            </LinearLayout>
 
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:id="@+id/tvMMK"
-                  android:text="MMK"
-                  android:layout_marginTop="@dimen/margin_xxlarge"
-                  android:layout_below="@+id/llSpinner"
-                  android:textColor="@color/black"
-                  android:textSize="@dimen/text_regular_3x"
-                  android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:id="@+id/tvMMK"
+                      android:text="MMK"
+                      android:layout_marginTop="@dimen/margin_xxlarge"
+                      android:layout_below="@+id/llSpinner"
+                      android:textColor="@color/black"
+                      android:textSize="@dimen/text_regular_3x"
+                      android:textStyle="bold"/>
 
-        <EditText android:layout_width="match_parent"
-                  android:layout_height="50dp"
-                  android:id="@+id/etMMK"
-                  android:layout_marginTop="@dimen/margin_small"
-                  android:layout_below="@+id/tvMMK"
-                  android:hint="0.00 MMK"
-                  android:textColor="@color/black"
-                  android:drawableLeft="@drawable/mmflag"
-                  android:textAlignment="center"
-                  android:background="@drawable/backgroud_calc"
-                  android:drawablePadding="@dimen/margin_large"
-        />
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="50dp"
+                      android:id="@+id/etMMK"
+                      android:layout_marginTop="@dimen/margin_small"
+                      android:layout_below="@+id/tvMMK"
+                      android:hint="0.00 MMK"
+                      android:textColor="@color/black"
+                      android:drawableLeft="@drawable/mmflag"
+                      android:textAlignment="center"
+                      android:background="@drawable/backgroud_calc"
+                      android:drawablePadding="@dimen/margin_large"
+                      android:layout_marginBottom="150dp"/>
 
 
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

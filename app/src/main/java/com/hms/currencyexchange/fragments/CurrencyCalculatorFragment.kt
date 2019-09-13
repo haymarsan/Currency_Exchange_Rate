@@ -19,7 +19,7 @@ import com.hms.currencyexchange.viewmodel.ExchangeRateViewModel
 import com.hms.currencyexchange.viewmodel.ExchangeRateViewModelImpl
 import kotlinx.android.synthetic.main.fragment_currency_calculation.*
 import kotlinx.android.synthetic.main.fragment_currency_calculation.view.*
-import java.lang.NumberFormatException
+import kotlin.NumberFormatException
 
 class CurrencyCalculatorFragment : Fragment() {
 
@@ -32,7 +32,7 @@ class CurrencyCalculatorFragment : Fragment() {
 
     private lateinit var mSpinner: Spinner
 
-   private lateinit var mAmount: EditText
+    private lateinit var mAmount: EditText
 
     private lateinit var mMMK: EditText
 
@@ -97,16 +97,8 @@ class CurrencyCalculatorFragment : Fragment() {
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    try {
-                        val rate = s.toString().toDouble()
-
-                        calculateCurrency(rate, usdRate)
-                        currencyTypeGenerator()
-                    } catch (e: NumberFormatException) {
-                        mMMK.setText("0.0")
-
-                    }
-
+                    val rate = s.toString().toDouble()
+                    currencyTypeGenerator()
                 }
 
                 override fun afterTextChanged(s: Editable?) {
@@ -135,33 +127,61 @@ class CurrencyCalculatorFragment : Fragment() {
 
 
     private fun currencyTypeGenerator() {
-        when (currencyType) {
-            "USD" -> {
-                if (mAmount.text.toString() != null) {
-                    mMMK.setText(calculateCurrency(mAmount.text.toString().toDouble(), usdRate).toString())
+        try {
+            when (currencyType) {
+                "USD" -> {
+                    if (!mAmount.text.toString().isNullOrBlank()) {
+                        mMMK.setText(
+                            calculateCurrency(mAmount.text.toString().toDouble(), usdRate).toString()
+                        )
+                    } else {
+                        mMMK.setText("0.0")
+                    }
+                }
+                "EUR" -> {
+                    if (!mAmount.text.toString().isNullOrBlank()) {
+                        mMMK.setText(
+                            calculateCurrency(mAmount.text.toString().toDouble(), eurRate).toString()
+                        )
+                    }else{
+                        mMMK.setText("0.0")
+                    }
+                }
+                "SGD" -> {
+
+                    if (!mAmount.text.toString().isNullOrBlank()) {
+                        mMMK.setText(
+
+                            calculateCurrency(mAmount.text.toString().toDouble(), sgdRate).toString()
+                        )
+                    }else{
+                        mMMK.setText("0.0")
+                    }
+                }
+                "THB" -> {
+                    if (!mAmount.text.toString().isNullOrBlank()) {
+                        mMMK.setText(
+
+                            calculateCurrency(mAmount.text.toString().toDouble(), thbRate).toString()
+                        )
+                    }else{
+                        mMMK.setText("0.0")
+                    }
+                }
+                "JPY" -> {
+                    if (!mAmount.text.toString().isNullOrBlank()) {
+                        mMMK.setText(
+                            calculateCurrency(mAmount.text.toString().toDouble(), jpyRate).toString()
+                        )
+                    }else{
+                        mMMK.setText("0.0")
+                    }
                 }
             }
-            "EUR" -> {
-                if (mAmount.text.toString() != null) {
-                    mMMK.setText(calculateCurrency(mAmount.text.toString().toDouble(), eurRate).toString())
-                }
-            }
-            "SGD" -> {
-                if (mAmount.text.toString() != null) {
-                    mMMK.setText(calculateCurrency(mAmount.text.toString().toDouble(), sgdRate).toString())
-                }
-            }
-            "THB" -> {
-                if (mAmount.text.toString() != null) {
-                    mMMK.setText(calculateCurrency(mAmount.text.toString().toDouble(), thbRate).toString())
-                }
-            }
-            "JPY" -> {
-                if (mAmount.text.toString() != null) {
-                    mMMK.setText(calculateCurrency(mAmount.text.toString().toDouble(), jpyRate).toString())
-                }
-            }
+        } catch (e: java.lang.NumberFormatException) {
+            e.printStackTrace()
         }
+
 
     }
 
