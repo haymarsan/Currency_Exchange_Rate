@@ -41,6 +41,7 @@
         <item>EUR</item>
         <item>THB</item>
         <item>SGD</item>
+        <item>JPY</item>
     </string-array>
 
     <string-array name="currency_arrays2">
@@ -57,8 +58,9 @@
     <!--<string name="interstitialID">ca-app-pub-3940256099942544/1033173712</string>-->
 
     //Production ID
-    <string name="app_id">ca-app-pub-1392619560208992~5524807195</string>
-    <string name="banner1_id">ca-app-pub-1392619560208992/6917779911</string>
-    <string name="interstitialID">ca-app-pub-1392619560208992/6533818296</string>
+    <string name="app_id">ca-app-pub-4401178293635594~4099861107</string>
+    <string name="banner1_id">ca-app-pub-4401178293635594/6803428959</string>
+    <string name="interstitialID">ca-app-pub-4401178293635594/1282126071</string>
+
 
 </resources>

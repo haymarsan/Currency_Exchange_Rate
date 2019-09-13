@@ -46,7 +46,7 @@
                   android:layout_marginTop="@dimen/margin_small"
                   android:layout_below="@+id/tvAmount"
                   android:textColor="@color/black"
-                  android:text="0"
+                  android:hint="0.0"
                   android:inputType="numberDecimal"
                   android:textAlignment="center"
                   android:background="@drawable/backgroud_calc"/>
@@ -71,6 +71,7 @@
                 android:paddingBottom="@dimen/content_padding2"
                 android:paddingStart="@dimen/content_padding2"
                 android:paddingEnd="@dimen/content_padding2">
+
             <Spinner
                     android:id="@+id/spnCurrency"
                     android:layout_width="match_parent"
@@ -80,7 +81,6 @@
                     android:textColor="@color/black"
                     android:entries="@array/currency_arrays1"
                     android:textSize="@dimen/text_regular_3x"
-
             />
         </LinearLayout>
 
