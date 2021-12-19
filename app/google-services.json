@@ -1,42 +1,245 @@
 {
   "project_info": {
-    "project_number": "1016577473227",
-    "firebase_url": "https://currency-exchange-63033.firebaseio.com",
-    "project_id": "currency-exchange-63033",
-    "storage_bucket": "currency-exchange-63033.appspot.com"
+    "project_number": "479378868674",
+    "firebase_url": "https://fir-acf77.firebaseio.com",
+    "project_id": "fir-acf77",
+    "storage_bucket": "fir-acf77.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1016577473227:android:5e55accac4658ffc",
+        "mobilesdk_app_id": "1:479378868674:android:aa64af0be90da75350ee5b",
         "android_client_info": {
-          "package_name": "com.hms.currencyexchange"
+          "package_name": "com.haymarsan.dhammapiya"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1016577473227-s156ce255hcvhkot7ka3b58pegj4qfqr.apps.googleusercontent.com",
+          "client_id": "479378868674-vaut8p9qj2qgaqnhtf0c69h3upsfuko8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.hms.currencyexchange",
-            "certificate_hash": "1f611c323a2c976bd483554ad5783022f63679d9"
+            "package_name": "com.haymarsan.dhammapiya",
+            "certificate_hash": "89b9f7928270b85d8778dc21aeb70222cf4e110d"
           }
         },
         {
-          "client_id": "1016577473227-iebmkjs6joml2lpg2a7ud3luu35s7f9c.apps.googleusercontent.com",
+          "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBLE2XwJJZf7P9-qbH1sxga-zj3YKyNgsY"
+          "current_key": "AIzaSyAmg1IaevzPmuKrMGTKIk2GkknQIw47OJA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1016577473227-iebmkjs6joml2lpg2a7ud3luu35s7f9c.apps.googleusercontent.com",
+              "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479378868674:android:179100d3d959927550ee5b",
+        "android_client_info": {
+          "package_name": "com.hms.cookingreceipes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmg1IaevzPmuKrMGTKIk2GkknQIw47OJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479378868674:android:f7f5dab4ab5ef51250ee5b",
+        "android_client_info": {
+          "package_name": "com.hms.currencyexchange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmg1IaevzPmuKrMGTKIk2GkknQIw47OJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479378868674:android:0f55dd54d6338c9950ee5b",
+        "android_client_info": {
+          "package_name": "com.hms.myanmar_englishdictionarytranslator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmg1IaevzPmuKrMGTKIk2GkknQIw47OJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479378868674:android:8a273f15ed8be79350ee5b",
+        "android_client_info": {
+          "package_name": "com.nanhm.mmcalendar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmg1IaevzPmuKrMGTKIk2GkknQIw47OJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479378868674:android:978f94b2d3d8705f50ee5b",
+        "android_client_info": {
+          "package_name": "com.peteaung.engmmdictionary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmg1IaevzPmuKrMGTKIk2GkknQIw47OJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479378868674:android:7ee7b6b3cc311c5050ee5b",
+        "android_client_info": {
+          "package_name": "com.peteaung.myhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmg1IaevzPmuKrMGTKIk2GkknQIw47OJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479378868674:android:81a4d7618d14a8ec50ee5b",
+        "android_client_info": {
+          "package_name": "om.peteaung.appconfig"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmg1IaevzPmuKrMGTKIk2GkknQIw47OJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479378868674-1gh6do3979dn7rj7jfa3noo2gg60675s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
